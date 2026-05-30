@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Dashboard</title>
+        <style>
+            .topBar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 2%;
+                background: #18181B;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                position: relative;
+            }
+            .Heading {
+                font-size: 24px;
+                font-weight: 700;
+                text-align: center;
+                color: #FAFAFA;
+            }
+            .btnStyle {
+                padding: 1%;
+                border: 1px solid #1F1F1F;
+                background: #8B5CF6;
+                cursor: pointer;
+                border-radius: 5px;
+                color: #FAFAFA;
+            }
+            .btnStyle:hover {
+                scale: 1.02;
+                font-weight: bold;
+                background: #8B5CA6;
+                border: 1px solid #8B5CF6;
+            }
+            #profileBox {
+                position: absolute;
+                top: 100%;
+                right: 2%;
+                background: #27272A;
+                border: 1px solid #8B5CF6;
+                border-radius: 5px;
+                padding: 15px;
+                display: none;
+                color: #FAFAFA;
+                z-index: 10;
+                margin-top: 5px;
+            }
+            .NavBar {
+                display: flex;
+                gap: 15px;
+                padding: 1%;
+                background: #27272A;
+                padding-left: 2%;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                color: #FAFAFA;
+                height: 30px;
+                align-items: center;
+            }
+            .topBar p { margin: 0; font-weight: 600; }
+            body {
+                background-color: #09090B;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 15px;
+                max-width: 800px;
+                padding: 10px;
+            }
+            .NavBar a {
+                padding: 5px;
+                text-decoration: none;
+                color: #FAFAFA;
+                font-weight: 500;
+            }
+            .NavBar a:hover {
+                color: #8B5CF6;
+                font-weight: 500;
+                border: 1px solid #8B5CF6;
+            }
+            .DetailCards {
+                padding-left: 2%;
+                padding-top: 2px;
+                padding-bottom: 15px;
+                padding-right: 2%;
+                border-radius: 5px;
+                background-color: #1F1F1F;
+                margin-top: 10px;
+                color: rgb(229, 219, 238);
+            }
+            .timeBox {
+                float: right;
+                margin-top: 20px;
+            }
+            select{
+                padding:2px;
+                margin:2px;
+                background-color:#8B5CF6;
+                color:#FAFAFA;
+                border:2px solid #1F1F1F;
+            }
+            #cgpaBtn {
+                margin-top: 10px;
+                margin-left:50px;
+                padding:10px;
+            }
+            #cgpaBtn:hover {
+                background-color:#8B5CA6;
+                border:1px solid #8B5CF6;
+                scale:1;
+            }
+            #cgpaOutput {
+                margin-top: 10px;
+                display:none; 
+                margin-left: 50px;
+                background:#1F1F1F;
+            }
+            #cgpaOutput:hover {
+                padding: 1%;
+                border: 1px solid #1F1F1F;
+                background: #1F1F1F;
+                cursor: pointer;
+                border-radius: 5px;
+                color: #FAFAFA;
+                font-weight:500;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topBar">
+            <p class="Heading">Student Dashboard</p>
+            <button id="loginBtn" class="btnStyle" onclick="showAuth()">Login / Signup</button>
+            <div id="profileBox"></div>
+        </div>
+        
+        <nav class="NavBar">
+            <a href="#HOME">Home</a>
+            <a href="#COURSES">Courses</a>
+            <a href="#GRADES">Grades</a>
+        </nav>
+
+        <section id="HOME" class="DetailCards">
+            <div id="timeDisplay" class="btnStyle timeBox">00:00</div>
+            <h2 id="welcomeMsg">Welcome to the Student Dashboard</h2>
+            <p id="welcomeText">This is your central hub for managing your courses and grades. Use the navigation bar above to access different sections of the dashboard.</p>
+            <p>Stay on top of your assignments, track your academic progress, and manage your daily student activities right here.</p>
+        </section>
+
+        <section id="COURSES" class="DetailCards">
+            <h2>Courses</h2>
+            <h3>List of courses selected: </h3>
+            <ul>
+                <li>Course 1: Data Structures and Algorithms</li>
+                <li>Course 2: Design and Analysis of Algorithms</li>
+                <li>Course 3: Web Development</li>
+                <li>Course 4: Database Management Systems</li>
+                <li>Course 5: Operating Systems</li>
+                <li>Course 6: Computer Networks</li>
+            </ul>
+        </section>
+
+        <section id="GRADES" class="DetailCards">
+            <h2>Grades</h2>
+            <h3>List of grades: </h3>
+            <ul>
+                <li>Course 1: <select class="gradeSelect"><option value="10">S</option><option value="9" selected>A</option><option value="8">B</option><option value="7">C</option><option value="6">D</option><option value="5">E</option><option value="0">F</option></select></li>
+                <li>Course 2: <select class="gradeSelect"><option value="10">S</option><option value="9" selected>A</option><option value="8">B</option><option value="7">C</option><option value="6">D</option><option value="5">E</option><option value="0">F</option></select></li>
+                <li>Course 3: <select class="gradeSelect"><option value="10">S</option><option value="9" selected>A</option><option value="8">B</option><option value="7">C</option><option value="6">D</option><option value="5">E</option><option value="0">F</option></select></li>
+                <li>Course 4: <select class="gradeSelect"><option value="10">S</option><option value="9" selected>A</option><option value="8">B</option><option value="7">C</option><option value="6">D</option><option value="5">E</option><option value="0">F</option></select></li>
+                <li>Course 5: <select class="gradeSelect"><option value="10">S</option><option value="9" selected>A</option><option value="8">B</option><option value="7">C</option><option value="6">D</option><option value="5">E</option><option value="0">F</option></select></li>
+                <li>Course 6: <select class="gradeSelect"><option value="10">S</option><option value="9" selected>A</option><option value="8">B</option><option value="7">C</option><option value="6">D</option><option value="5">E</option><option value="0">F</option></select></li>
+            </ul>
+            <button id="cgpaBtn" class="btnStyle" onclick="calcCGPA()">Show CGPA</button><br>
+            <span id="cgpaOutput" class="btnStyle"></span>
+        </section>
+
+        <script>
+            let isLoggedIn = false;
+            let showCGPA=false;
+            let studentName = "";
+            let studentRegNo = "";
+            let studentAge = "";
+
+            function showAuth() {
+                if (isLoggedIn == false) {
+                    studentRegNo = prompt("Enter your Registration Number:");
+                    studentName = prompt("Enter your Name:");
+                    studentAge = prompt("Enter your Age:");
+
+                    isLoggedIn = true;
+
+                    document.getElementById("loginBtn").innerText = studentRegNo;
+
+                    document.getElementById("welcomeMsg").innerText = "Welcome back, " + studentName + "!";
+                    document.getElementById("welcomeText").innerText = "You are now logged in. Have a great day studying!";
+                    
+                    document.getElementById("profileBox").innerHTML = "<p>Name: " + studentName + "</p><p>Reg No: " + studentRegNo + "</p><p>Age: " + studentAge + "</p>";
+                } else {
+                    let pBox = document.getElementById("profileBox");
+                    if (pBox.style.display == "block") {
+                        pBox.style.display = "none";
+                    } else {
+                        pBox.style.display = "block";
+                    }
+                }
+            }
+
+            setInterval(function() {
+                let date = new Date();
+                let h = date.getHours();
+                let m = date.getMinutes();
+                if (h < 10) h = "0" + h;
+                if (m < 10) m = "0" + m;
+                document.getElementById("timeDisplay").innerText = h + ":" + m;
+            }, 1000);
+
+            function calcCGPA() {
+                if(showCGPA){
+                    document.getElementById("cgpaOutput").style.display = "none";
+                    document.getElementById("cgpaBtn").innerText = "Show CGPA";
+                    showCGPA=false;
+                    return;
+                }
+                let selects = document.getElementsByClassName("gradeSelect");
+                let total = 0;
+                for (let i = 0; i < selects.length; i++) {
+                    total += parseInt(selects[i].value);
+                }
+                let cgpa = total / selects.length;
+                let outBox = document.getElementById("cgpaOutput");
+                outBox.innerText = "CGPA: " + cgpa.toFixed(2);
+                document.getElementById("cgpaBtn").innerText = "Hide CGPA";
+                outBox.style.display = "inline-block";
+                showCGPA=true;
+            }
+        </script>
+    </body>
+</html>
